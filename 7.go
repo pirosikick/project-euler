@@ -28,5 +28,5 @@ func main() {
 			count += 1
 		}
 	}
-	fmt.Printf("10001st prime number is %d\n", nthPrime)
+	fmt.Printf("%dst prime number is %d\n", n, nthPrime)
 }
