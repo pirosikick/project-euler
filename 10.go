@@ -8,11 +8,16 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
-func isPrimeNumber(num int, primes []int) bool {
-	for _, prime := range primes {
-		if num%prime == 0 {
+func sqrt(num int) int {
+	return int(math.Sqrt(float64(num)))
+}
+
+func isPrimeNumber(num int) bool {
+	for i := 3; i <= sqrt(num); i += 2 {
+		if num%i == 0 {
 			return false
 		}
 	}
@@ -22,11 +27,9 @@ func isPrimeNumber(num int, primes []int) bool {
 func main() {
 	threshold := 2000000
 	sum := 2
-	primes := []int{2}
 	for i := 3; i < threshold; i += 2 {
-		if isPrimeNumber(i, primes) {
+		if isPrimeNumber(i) {
 			sum += i
-			primes = append(primes, i)
 			fmt.Printf("prime:%d, sub:%d\n", i, sum)
 		}
 	}
